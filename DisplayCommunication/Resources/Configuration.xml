@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <param name="Server">79.190.81.11</param>
+  <param name="Database">banner1</param>
+  <param name="User">banner</param>
+  <param name="Password">ba23&amp;&amp;DF</param>
+  <param name="Port">5432</param>
+</configuration>

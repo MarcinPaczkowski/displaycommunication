@@ -1,0 +1,7 @@
+﻿Mode	1
+J	<J127><T5><C#availableColor><CL><S13#availablePlaces><P10>
+D	<J127><T5><C#availableColor><CL><S10#availablePlaces><P10>
+JJ	<J127><T5><C#availableColor><CL><S03#availablePlaces><C#notAvailableColor><S25#notAvailablePlaces><P10>
+JD	<J127><T5><C#availableColor><CL><S03#availablePlaces><C#notAvailableColor><S21#notAvailablePlaces><P10>
+DJ	<J127><T5><C#availableColor><CL><S01#availablePlaces><C#notAvailableColor><S25#notAvailablePlaces><P10>
+DD	<J127><T5><C#availableColor><CL><S01#availablePlaces><C#notAvailableColor><S21#notAvailablePlaces><P10>
