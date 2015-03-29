@@ -72,5 +72,10 @@ namespace DisplayMessageSender.Forms
                 }
             }
         }
+
+        private void uxClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

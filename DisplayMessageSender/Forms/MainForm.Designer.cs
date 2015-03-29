@@ -83,6 +83,7 @@
             this.uxClose.TabIndex = 3;
             this.uxClose.Text = "Zamknij";
             this.uxClose.UseVisualStyleBackColor = true;
+            this.uxClose.Click += new System.EventHandler(this.uxClose_Click);
             // 
             // uxLabelSerialPort
             // 
