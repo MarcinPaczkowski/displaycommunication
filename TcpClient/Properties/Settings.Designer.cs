@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DisplayCommunication.Properties {
+namespace TcpClient.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,13 +25,13 @@ namespace DisplayCommunication.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool LoggingEnable {
+        [global::System.Configuration.DefaultSettingValueAttribute("55056")]
+        public int Port {
             get {
-                return ((bool)(this["LoggingEnable"]));
+                return ((int)(this["Port"]));
             }
             set {
-                this["LoggingEnable"] = value;
+                this["Port"] = value;
             }
         }
         
@@ -49,13 +49,13 @@ namespace DisplayCommunication.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("50000")]
-        public int Port {
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool LoggingEnable {
             get {
-                return ((int)(this["Port"]));
+                return ((bool)(this["LoggingEnable"]));
             }
             set {
-                this["Port"] = value;
+                this["LoggingEnable"] = value;
             }
         }
     }

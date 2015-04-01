@@ -21,7 +21,6 @@ namespace DisplayCommunication.Services
         internal void TryDisplayMessage(int messageId)
         {
             _messageId = messageId;
-            LoadConfigurationFiles();
             _display = _displayRepository.SelectDisplayMessage(_messageId);
             _display.FullCommand = _displayCommandFabric.CreateDisplayCommand(_display.Command);
 
@@ -52,11 +51,6 @@ namespace DisplayCommunication.Services
                     SerialPortToken.Instance.DisconnectSerialPort();
                 }
             }
-        }
-        private static void LoadConfigurationFiles()
-        {
-            Configuration.Instance.LoadAdditionalEffectsConfiguration("ExtensionDisplayConfiguration.txt");
-            Configuration.Instance.LoadSqlConfiguration("Configuration.xml");
         }
     }
 }

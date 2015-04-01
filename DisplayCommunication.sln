@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisplayCommon", "DisplayCom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisplayMessageSender", "DisplayMessageSender\DisplayMessageSender.csproj", "{29D1A55D-48F5-4AEA-8BE7-4A28E27C374B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpClient", "TcpClient\TcpClient.csproj", "{2C942420-6C4F-4841-9FB1-58FE0F51B9EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{29D1A55D-48F5-4AEA-8BE7-4A28E27C374B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29D1A55D-48F5-4AEA-8BE7-4A28E27C374B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29D1A55D-48F5-4AEA-8BE7-4A28E27C374B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C942420-6C4F-4841-9FB1-58FE0F51B9EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C942420-6C4F-4841-9FB1-58FE0F51B9EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C942420-6C4F-4841-9FB1-58FE0F51B9EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C942420-6C4F-4841-9FB1-58FE0F51B9EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
