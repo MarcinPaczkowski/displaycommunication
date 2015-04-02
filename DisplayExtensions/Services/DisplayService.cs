@@ -9,12 +9,12 @@ namespace DisplayExtensions.Services
 {
     public class DisplayService
     {
-        public bool WriteBytes(SerialPort serialPort, List<byte> frame)
+        public byte WriteBytes(SerialPort serialPort, List<byte> frame)
         {
             serialPort.Write(frame.ToArray(), 0, frame.Count);
-            var displayAnswer = new byte[2];
-            serialPort.Read(displayAnswer, 0, 2);
-            return displayAnswer[0] == (byte)SpecialByte.Ack;
+            var displayAnswer = new byte[1];
+            serialPort.Read(displayAnswer, 0, 1);
+            return displayAnswer[0];
         }
 
         public bool IsReadyToWrite(SerialPort serialPort, byte displayAddress = 0x20)

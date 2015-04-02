@@ -28,6 +28,7 @@ namespace DisplayCommunication.Console
 
                 var server = new TcpListener(localAddr, port);
                 server.Stop();
+                DisplayMessage(String.Format("Rozpoczęto nasłuchiwanie - {0}:{1}", localAddr, port));
 
                 while (true)
                 {
@@ -38,6 +39,7 @@ namespace DisplayCommunication.Console
             }
             catch (Exception ex)
             {
+                DisplayMessage(ex.Message);
                 if (Settings.Default.LoggingEnable)
                 {
                     Log.Error(ex.Message);
@@ -60,10 +62,12 @@ namespace DisplayCommunication.Console
                     var message = Encoding.ASCII.GetString(bytes);
                     var messageId = Convert.ToInt32(message);
                     _mainService.TryDisplayMessage(messageId);
+                    DisplayMessage(String.Format("Udana operacja wyświetlenia wiadomości dla id {0}", messageId));
                 }
             }
             catch (Exception ex)
             {
+                DisplayMessage(ex.Message);
                 if (!Settings.Default.LoggingEnable)
                     return;
                 Log.Error(ex.Message);
@@ -80,6 +84,11 @@ namespace DisplayCommunication.Console
         {
             Configuration.Instance.LoadAdditionalEffectsConfiguration("ExtensionDisplayConfiguration.txt");
             Configuration.Instance.LoadSqlConfiguration("Configuration.xml");
+        }
+
+        private static void DisplayMessage(string message)
+        {
+            System.Console.WriteLine(@"{0} - {1}", DateTime.Now, message);
         }
     }
 }

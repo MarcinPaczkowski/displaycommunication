@@ -60,7 +60,11 @@ namespace DisplayMessageSender.Forms
                     _displayService.WriteBytes(serialPort, frameWithCommand);
 
                     var frameForEndText = _displayService.CreateFrameForEndText();
-                    _displayService.WriteBytes(serialPort, frameForEndText);
+                    var result = _displayService.WriteBytes(serialPort, frameForEndText);
+                    MessageBox.Show(result == (byte) SpecialByte.Ack
+                        ? @"Wyświetlacz zwrócił, potwierdzenie wyświetlenia komunikatu."
+                        : @"Wyświetlacz nie zwrócił, potwierdzenia wyświetlenia komunikatu.", @"Odpowiedź wyświetlacza", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {

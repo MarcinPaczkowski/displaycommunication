@@ -15,7 +15,8 @@ namespace DisplayCommon.Utils
                 Database = configuration.Database,
                 UserName = configuration.UserName,
                 Password = configuration.Password,
-                Port = configuration.Port
+                Port = configuration.Port,
+                Pooling = false,
             };
         }
 

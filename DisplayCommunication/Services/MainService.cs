@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using DisplayCommon.Models;
 using DisplayCommon.Utils;
 using DisplayCommunication.Repositories;
@@ -44,7 +45,8 @@ namespace DisplayCommunication.Services
                     _displayService.WriteBytes(serialPort, frameWithCommand);
 
                     var frameForEndText = _displayService.CreateFrameForEndText();
-                    _displayService.WriteBytes(serialPort, frameForEndText);
+                    var result = _displayService.WriteBytes(serialPort, frameForEndText);
+                    _displayRepository.InserResult(_display.DisplayId, result.ToString(CultureInfo.InvariantCulture));
                 }
                 finally
                 {

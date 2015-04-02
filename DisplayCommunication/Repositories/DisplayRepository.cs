@@ -33,6 +33,22 @@ namespace DisplayCommunication.Repositories
             return display;
         }
 
+        internal void InserResult(int displayId, string result)
+        {
+            var insertQuery = GetInsertQuery();
+            using (var command = new NpgsqlCommand(insertQuery))
+            {
+                command.Parameters.AddWithValue("@DisplayId", displayId);
+                command.Parameters.AddWithValue("@Result", result);
+
+                command.Connection = new NpgsqlConnection(DbConnection.GetConnectionString());
+                command.Connection.Open();
+                command.ExecuteNonQuery();
+
+                command.Connection.Close();
+            }
+        }
+
         private static string GetSelectQuery()
         {
             const string query = @"
@@ -43,6 +59,20 @@ namespace DisplayCommunication.Repositories
                 FROM signs S
                 JOIN signstx SS ON S.id_sign = SS.id_sign
                 WHERE SS.index = @MessageId";
+            return query;
+        }
+
+        private static string GetInsertQuery()
+        {
+            const string query = @"
+                INSERT INTO signsrx
+                     (id_sign 
+                     ,dtime
+                     ,reply)
+                VALUES 
+                     (@DisplayId
+                     ,NOW()
+                     ,@Result)";
             return query;
         }
     }
