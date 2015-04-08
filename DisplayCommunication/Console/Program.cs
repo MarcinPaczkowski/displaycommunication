@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
+using System.Reflection;
 using System.Text;
 using DisplayCommon.Utils;
 using DisplayCommunication.Properties;
@@ -13,7 +14,7 @@ namespace DisplayCommunication.Console
     public class Program
     {
         private static MainService _mainService;
-        private static readonly ILog Log = LogManager.GetLogger(typeof(Program));
+        private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         static void Main()
         {
@@ -59,10 +60,14 @@ namespace DisplayCommunication.Console
                 var stream = client.GetStream();
                 while (stream.Read(bytes, 0, bytes.Length) != 0)
                 {
-                    var message = Encoding.ASCII.GetString(bytes);
-                    var messageId = Convert.ToInt32(message);
-                    _mainService.TryDisplayMessage(messageId);
-                    DisplayMessage(String.Format("Udana operacja wyświetlenia wiadomości dla id {0}", messageId));
+                    var fullMessage = Encoding.ASCII.GetString(bytes);
+                    var splittedMessage = fullMessage.Split(';');
+
+                    var displayMessage = splittedMessage[0];
+                    var signMessage = splittedMessage[1];
+
+                    _mainService.TryDisplayMessage(displayMessage, signMessage);
+                    DisplayMessage(String.Format("Udana operacja wyświetlenia wiadomości dla wiadomości {0}", displayMessage));
                 }
             }
             catch (Exception ex)

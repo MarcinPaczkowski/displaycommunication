@@ -72,6 +72,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Resources\Log4net.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

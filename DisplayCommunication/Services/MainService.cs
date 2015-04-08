@@ -15,14 +15,15 @@ namespace DisplayCommunication.Services
         private readonly DisplayService _displayService = new DisplayService();
         private readonly DisplayCommandFabric _displayCommandFabric = new DisplayCommandFabric();
 
-        private int _messageId;
         private Display _display;
         private const int Counter = 10;
 
-        internal void TryDisplayMessage(int messageId)
+        internal void TryDisplayMessage(string displayMessage, string signMessage)
         {
-            _messageId = messageId;
-            _display = _displayRepository.SelectDisplayMessage(_messageId);
+            var substringedSignMessage = signMessage.Substring(3);
+            var signId = Convert.ToInt32(substringedSignMessage);
+            _display = _displayRepository.SelectDisplayMessage(signId);
+            _display.Command = displayMessage;
             _display.FullCommand = _displayCommandFabric.CreateDisplayCommand(_display.Command);
 
             lock (SerialPortToken.Instance)
